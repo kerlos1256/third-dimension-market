@@ -1,14 +1,27 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import React from "react";
+import { startMockServer } from "@mock";
+import { MainLayout } from "@components";
+
+startMockServer();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <>
-  <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-  </Head>
-  <Component {...pageProps} />
-  </>
+  const [queryClient] = React.useState(() => new QueryClient());
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </Hydrate>
+    </QueryClientProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
