@@ -20,7 +20,8 @@
       "@mock":["Mock"],
       "@services":["Services"],
       "@utils":["utils"],
-      "@validation":["validation"]
+      "@validation":["validation"],
+      "@lib":["lib"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
