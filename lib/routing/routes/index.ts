@@ -1,10 +1,13 @@
+export * from "./products";
 import { ArrElement } from "@utils";
+import { ProductsRoutes, ProductsRoutesType } from "./products";
+
+export type RecordProps = Record<string, any>;
 
 export type RoutesType = MainRouterInterface;
 
 export type MainRouterInterface = {
   route: string;
-  dataKeys: Record<string, any>;
   mapProps: (
     keys: readonly string[],
     data: Record<string, any>
@@ -14,12 +17,12 @@ export type MainRouterInterface = {
   location: (location: string) => RoutesType;
   onMap: () => RoutesType;
   search: () => RoutesType;
-};
+} & ProductsRoutesType;
 
 export const MainRoutes: MainRouterInterface = {
+  ...ProductsRoutes,
   route: "",
 
-  dataKeys: {},
   addPath(path: string) {
     this.route = `${this.route}/${path}`;
     this;

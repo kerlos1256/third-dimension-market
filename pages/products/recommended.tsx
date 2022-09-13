@@ -29,7 +29,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const RecommendedProducts: NextPage<RecommendedProductsProps> = () => {
   const { data: res, isLoading, isError } = useGetRecommendedProductsQuery();
   return (
-    <Grid container gap={2} py={2} columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}>
+    <Grid
+      container
+      justifyContent={"center"}
+      gap={2}
+      py={2}
+      columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+    >
       {res
         ? res.data.map((product, i) => (
             <Grid item xs={1}>

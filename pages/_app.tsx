@@ -8,10 +8,9 @@ import {
 import React from "react";
 import { startMockServer } from "@mock";
 import { MainLayout } from "@components";
-import { useRouting, RoutingProvider } from "@lib";
+import { RoutingProvider } from "@lib";
 import { useRouter } from "next/router";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { purple } from "@mui/material/colors";
 
 startMockServer();
 

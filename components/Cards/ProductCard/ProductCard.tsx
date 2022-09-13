@@ -48,10 +48,11 @@ export const RecommendedProductCard: React.FC<RecommendedProductCardProps> = (
         <Button
           onClick={() =>
             visit((routes) => {
-              return routes.productById(props);
+              return routes.visitProductDetails(props);
             })
           }
-          variant="contained"
+          color="info"
+          variant="outlined"
         >
           Preview
         </Button>

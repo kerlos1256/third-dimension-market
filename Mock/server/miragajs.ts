@@ -8,6 +8,11 @@ import { createServer } from "miragejs";
 export function startMockServer() {
   return createServer({
     routes() {
+      this.passthrough((request) => {
+        if (request.url === "/_next/static/development/_devPagesManifest.json")
+          return true;
+      });
+
       this.urlPrefix = baseUrl;
 
       this.get(
